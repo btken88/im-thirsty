@@ -23,9 +23,8 @@ function renderJson(data) {
 }
 
 function renderPage(userData) {
-  const $greeting = document.querySelector('#greeting')
-  $greeting.textContent = `Welcome back, ${userData.name}!`
-  console.log(userData.user_cocktails)
+  updateGreeting(userData)
+  renderFavorites(userData)
 }
 
 function renderSearchResults(searchResults) {
@@ -52,4 +51,30 @@ function appendSearch(drinks) {
   drinks.forEach(drink => {
     $results.append(drink)
   })
+}
+
+function updateGreeting(userData) {
+  const $greeting = document.querySelector('#greeting')
+  $greeting.textContent = `Welcome back, ${userData.name}!`
+}
+
+function renderFavorites(userData) {
+  const favorites = userData.user_cocktails.map(cocktail => {
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.cocktail_id}`)
+      .then(renderJson)
+      .then(result => createFavorite(result, cocktail.id))
+  })
+}
+
+function createFavorite(drinkData, cocktailId) {
+  const $li = document.createElement('li')
+  $li.innerHTML = `
+    <p>${drinkData.drinks[0].strDrink}</p>
+    <img src="${drinkData.drinks[0].strDrinkThumb}">
+    <form method="POST" action="http://localhost:3001/user_cocktails/">
+      <input type="hidden" name="id" value="${cocktailId}">
+      <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Remove Favorite">
+    </form>`
+  document.querySelector('#favorites').append($li)
 }
