@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" src="app.css">
+  <title>I'm Thirsty!</title>
+</head>
+
+<body>
+  <h1>I'm Thirsty!</h1>
+  <section id="hero">
+    <form>
+      <input type="text" name="search" placeholder="Cocktail Name">
+      <input type="submit" value="Search!">
+    </form>
+  </section>
+
+  <section id="signin">
+    <h2>Sign in</h2>
+
+    <form method="GET" action="http://localhost:3001/users">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Sign In">
+    </form>
+
+    <h2>Create account</h2>
+
+    <form method='POST' action="http://localhost:3001/users">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password">
+      <input type="submit" value="Create Account">
+    </form>
+
+  </section>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
