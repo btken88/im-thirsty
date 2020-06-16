@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Lobster+Two:ital@1&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -132,4 +134,34 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+/* My Styling */
+
+body {
+  font-family: Josefin Sans;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Lobster two";
+}
+
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    linear-gradient(white, hsla(50, 70%, 60%)),
+    url("cocktails.jpg");
+  background-blend-mode: saturation;
+  background-size: cover;
+  height: 80vh;
+}
+
+h1 {
+  position: absolute;
+
 }

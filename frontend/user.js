@@ -38,7 +38,7 @@ function mapSearchResults(searchResults) {
     <p>${drink.strDrink}</p>
     <img src="${drink.strDrinkThumb}">
     <form method="POST" action="http://localhost:3001/user_cocktails">
-      <input type="hidden" name="user_id" value="">
+      <input type="hidden" name="user_id" value="${id}">
       <input type="hidden" name="cocktail_id" value="${drink.idDrink}">
       <input type="submit" value="Add Favorite">
     </form>`
