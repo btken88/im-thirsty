@@ -59,7 +59,7 @@ function updateGreeting(userData) {
 }
 
 function renderFavorites(userData) {
-  const favorites = userData.user_cocktails.map(cocktail => {
+  userData.user_cocktails.map(cocktail => {
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${cocktail.cocktail_id}`)
       .then(renderJson)
       .then(result => createFavorite(result, cocktail.id))
@@ -71,8 +71,7 @@ function createFavorite(drinkData, cocktailId) {
   $li.innerHTML = `
     <p>${drinkData.drinks[0].strDrink}</p>
     <img src="${drinkData.drinks[0].strDrinkThumb}">
-    <form method="POST" action="http://localhost:3001/user_cocktails/">
-      <input type="hidden" name="id" value="${cocktailId}">
+    <form method="POST" action="http://localhost:3001/user_cocktails/${cocktailId}">
       <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Remove Favorite">
     </form>`
