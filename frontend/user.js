@@ -40,7 +40,7 @@ function mapSearchResults(searchResults) {
     <form method="POST" action="http://localhost:3001/user_cocktails">
       <input type="hidden" name="user_id" value="${id}">
       <input type="hidden" name="cocktail_id" value="${drink.idDrink}">
-      <input type="submit" value="Add Favorite">
+      <input class="favorite-button" type="submit" value="Add Favorite">
     </form>`
     return $li
   })
@@ -73,7 +73,7 @@ function createFavorite(drinkData, cocktailId) {
     <img src="${drinkData.drinks[0].strDrinkThumb}">
     <form method="POST" action="http://localhost:3001/user_cocktails/${cocktailId}">
       <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Remove Favorite">
+        <input class="favorite-button" type="submit" value="Remove Favorite">
     </form>`
   document.querySelector('#favorites').append($li)
 }

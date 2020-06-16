@@ -5,37 +5,44 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="app.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <title>I'm Thirsty!</title>
 </head>
 
 <body>
+  <header>
+    <a href="http://localhost:3000">I'm Thirsty!</a>
+  </header>
   <section id="hero">
-    <h1>I'm Thirsty!</h1>
     <form>
       <input id="search-text" type="text" name="search" placeholder="Cocktail Name">
-      <input type="submit" value="Search!">
+      <input id="search-submit" type="submit" value="Search!">
     </form>
-    <ul id="results"></ul>
+    <a href="#account">Sign In / Create Account</a>
   </section>
+  <ul id="results"></ul>
 
-  <section id="signin">
-    <h2>Sign in</h2>
+  <section id="account">
+    <div id="sign-in">
+      <h2>Sign in</h2>
 
-    <form method="GET" action="http://localhost:3001/users">
-      <input type="text" name="username" id="username" placeholder="Username">
-      <input type="password" name="password" id="password" placeholder="Password">
-      <input type="submit" value="Sign In">
-    </form>
+      <form method="GET" action="http://localhost:3001/users">
+        <input type="text" name="username" id="username" placeholder="Username">
+        <input type="password" name="password" id="password" placeholder="Password">
+        <input type="submit" value="Sign In">
+      </form>
+    </div>
 
-    <h2>Create account</h2>
+    <div id="create-account">
+      <h2>Create account</h2>
 
-    <form method='POST' action="http://localhost:3001/users">
-      <input type="text" name="name" placeholder="Name">
-      <input type="text" name="username" placeholder="Username">
-      <input type="password" name="password" placeholder="Password">
-      <input type="submit" value="Create Account">
-    </form>
-
+      <form method='POST' action="http://localhost:3001/users">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Create Account">
+      </form>
+    </div>
   </section>
 
   <script src="index.js"></script>

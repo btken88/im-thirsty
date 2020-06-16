@@ -5,6 +5,8 @@ if (drink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(renderJson)
     .then(renderSearchResults)
+} else {
+  document.querySelector('ul').remove()
 }
 
 function renderJson(data) {

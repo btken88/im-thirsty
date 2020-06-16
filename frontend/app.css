@@ -139,7 +139,10 @@ table {
 /* My Styling */
 
 body {
+  background-color: hsl(0, 30%, 95%);
   font-family: Josefin Sans;
+  color: hsl(0, 60%, 15%);
+  margin-bottom: 2rem;
 }
 
 h1,
@@ -149,19 +152,145 @@ h4 {
   font-family: "Lobster two";
 }
 
+header {
+  padding: .5rem;
+  padding-left: 2rem;
+  background-color: hsl(100, 30%, 85%);
+  box-shadow: 0 0 6px hsl(98, 43%, 10%);
+  position: relative;
+}
+
+
+a {
+  text-decoration: none;
+}
+
 #hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image:
-    linear-gradient(white, hsla(50, 70%, 60%)),
-    url("cocktails.jpg");
-  background-blend-mode: saturation;
+  background-image: url("cocktails.jpg");
   background-size: cover;
   height: 80vh;
 }
 
-h1 {
-  position: absolute;
+#hero a {
+  margin-top: 1.5rem;
+  background-color: hsl(0, 50%, 90%);
+  padding: .3rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px hsl(0, 60%, 25%);
+  color: inherit;
+}
 
+header a {
+  font-family: Lobster two;
+  font-size: 40px;
+  color: hsl(98, 43%, 10%);
+}
+
+h2 {
+  font-size: 28px;
+  padding: .4rem;
+}
+
+input {
+  font-family: Josefin Sans;
+}
+
+#search-submit {
+  background-color: hsl(0, 50%, 90%);
+  padding: .7rem 1.7rem;
+  font-size: 24px;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px hsl(0, 60%, 25%);
+  color: hsl(0, 60%, 15%);
+  cursor: pointer;
+}
+
+#search-text {
+  font-size: 24px;
+  padding: .7rem;
+  border-radius: 5px;
+  border-style: none;
+  text-align: center;
+  margin-right: 2rem;
+  box-shadow: 0 2px 3px;
+}
+
+#search {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#account {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 2rem 0;
+}
+
+#account input {
+  font-size: 18px;
+}
+
+#account input[type=text],
+input[type=password] {
+  padding: .25rem;
+  border-radius: 5px;
+  border-style: none;
+  box-shadow: 0 1px 3px hsl(0, 0%, 15%);
+}
+
+#account input[type=submit] {
+  background-color: hsl(0, 50%, 90%);
+  padding: .25rem;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px hsl(0, 60%, 25%);
+  color: hsl(0, 60%, 15%);
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+ul li img {
+  max-width: 20vw;
+  border-radius: 5px;
+  box-shadow: 0px 1px 7px hsl(0, 60%, 15%)
+}
+
+li>p {
+  padding-bottom: .7rem;
+  font-size: 20px;
+}
+
+li {
+  padding-top: 2rem;
+}
+
+#greeting {
+  padding: 2rem;
+  text-align: center;
+  font-size: 28px;
+}
+
+.favorite-button {
+  margin-top: .5rem;
+  background-color: hsl(0, 50%, 90%);
+  padding: .2rem;
+  font-size: 16px;
+  border-style: none;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px hsl(0, 60%, 25%);
+  color: hsl(0, 60%, 15%);
+  cursor: pointer;
 }

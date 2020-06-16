@@ -5,17 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="app.css">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
   <title>I'm Thirsty!</title>
 </head>
 
 <body>
-  <h1>I'm Thirsty!</h1>
+  <header>
+    <a href="http://localhost:3000">I'm Thirsty!</a>
+  </header>
   <p id="greeting">Welcome back!</p>
-  <form>
-    <input type="text" name="search" placeholder="Cocktail Name">
-    <input type="submit" value="Search!">
-  </form>
-  <ul id="results"></ul>
+  <section id="search">
+    <form>
+      <input id="search-text" type="text" name="search" placeholder="Cocktail Name">
+      <input id="search-submit" type="submit" value="Search!">
+    </form>
+    <ul id="results"></ul>
+  </section>
   <h2>Your favorite cocktails:</h2>
   <ul id="favorites"></ul>
   <script src="user.js"></script>
