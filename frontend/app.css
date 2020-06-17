@@ -170,7 +170,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("cocktails.jpg");
+  background-image: url("cocktails-sm.jpg");
   background-size: cover;
   height: 80vh;
 }
