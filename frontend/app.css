@@ -195,11 +195,13 @@ h2 {
   padding: .4rem;
 }
 
-input, button {
+input,
+button {
   font-family: Josefin Sans;
 }
 
-#search-submit, #random-button {
+#search-submit,
+#random-button {
   background-color: hsl(0, 50%, 90%);
   padding: .7rem 1.7rem;
   font-size: 24px;
@@ -268,14 +270,11 @@ ul li img {
   box-shadow: 0px 1px 7px hsl(0, 60%, 15%)
 }
 
-li>p {
+.drink-name {
   padding-bottom: .7rem;
   font-size: 20px;
 }
 
-li {
-  padding-top: 2rem;
-}
 
 #greeting {
   padding: 2rem;
@@ -298,5 +297,62 @@ li {
 #search-main {
   display: flex;
   justify-content: space-around;
+}
 
+.outer-container {
+  margin: 2rem 0;
+  height: 300px;
+  width: 300px;
+  perspective: 1000px;
+}
+
+.inner-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  padding-bottom: 10px;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.outer-container.reverse .inner-container {
+  transform: rotateY(180deg);
+}
+
+.ingredients {
+  padding: 12px 0;
+  display: list-item;
+}
+
+input:focus {
+  outline: none;
+}
+
+[placeholder]:focus::-webkit-input-placeholder {
+  transition: opacity 0.5s 0.5s ease;
+  opacity: 0;
+}
+
+button:hover,
+input[type="submit"]:hover,
+#account-link:hover {
+  transform: scale(1.03);
+  transition: transform .5s;
+}
+
+#account-link {
+  display: inline-block;
 }

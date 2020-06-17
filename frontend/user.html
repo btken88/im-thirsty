@@ -11,14 +11,17 @@
 
 <body>
   <header>
-    <a href="http://127.0.0.1:5500/">I'm Thirsty!</a>
+    <a href="http://localhost:3000/">I'm Thirsty!</a>
   </header>
   <p id="greeting">Welcome back!</p>
   <section id="search">
-    <form>
-      <input id="search-text" type="text" name="search" placeholder="Cocktail Name">
-      <input id="search-submit" type="submit" value="Search!">
-    </form>
+    <div id="search-main">
+      <form>
+        <input id="search-text" type="text" name="search" placeholder="Cocktail Name">
+        <input id="search-submit" type="submit" value="Search!">
+      </form>
+      <button id="random-button" onclick=randomDrink()>Random Drink</button>
+    </div>
     <ul id="results"></ul>
   </section>
   <h2>Your favorite cocktails:</h2>
