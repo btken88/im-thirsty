@@ -1,13 +1,12 @@
 const searchParams = new URLSearchParams(window.location.search)
 const drink = searchParams.get('search')
 
+
 if (drink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(renderJson)
     .then(renderSearchResults)
-} else {
-  document.querySelector('ul').remove()
-}
+} 
 
 function renderJson(data) {
   return data.json()
@@ -32,4 +31,12 @@ function appendDrinks(drinks) {
   drinks.forEach(drink => {
     $results.append(drink)
   })
+}
+
+function randomDrink () {
+
+document.querySelector("#results").innerHTML = ''
+fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+.then(renderJson)
+.then(renderSearchResults)
 }

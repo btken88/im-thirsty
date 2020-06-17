@@ -195,11 +195,11 @@ h2 {
   padding: .4rem;
 }
 
-input {
+input, button {
   font-family: Josefin Sans;
 }
 
-#search-submit {
+#search-submit, #random-button {
   background-color: hsl(0, 50%, 90%);
   padding: .7rem 1.7rem;
   font-size: 24px;
@@ -208,6 +208,7 @@ input {
   box-shadow: 0 2px 3px hsl(0, 60%, 25%);
   color: hsl(0, 60%, 15%);
   cursor: pointer;
+  margin-left: 2rem;
 }
 
 #search-text {
@@ -216,7 +217,6 @@ input {
   border-radius: 5px;
   border-style: none;
   text-align: center;
-  margin-right: 2rem;
   box-shadow: 0 2px 3px;
 }
 
@@ -293,4 +293,10 @@ li {
   box-shadow: 0 1px 2px hsl(0, 60%, 25%);
   color: hsl(0, 60%, 15%);
   cursor: pointer;
+}
+
+#search-main {
+  display: flex;
+  justify-content: space-around;
+
 }
