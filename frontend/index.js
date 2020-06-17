@@ -1,10 +1,17 @@
 const searchParams = new URLSearchParams(window.location.search)
 const drink = searchParams.get('search')
+const user = searchParams.get('user')
 
 if (drink) {
   fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
     .then(renderJson)
     .then(renderSearchResults)
+}
+
+if (user == 'true') {
+  const $p = document.createElement('p')
+  $p.textContent = "Please enter a valid Username/Password"
+  document.querySelector('#sign-in').prepend($p)
 }
 
 function renderJson(data) {

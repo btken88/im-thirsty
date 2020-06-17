@@ -3,14 +3,12 @@
 class UsersController < ApplicationController
   def index
     if params[:username]
-      @user = User.where('username = ?', params[:username])
-      if @user
-        if @user.first.password == params[:password]
-          redirect_to "http://localhost:3000/user.html?id=#{@user.first.id}"
-        end
+      @user = User.where(['username = ? and password = ?', params[:username], params[:password]])
+      if @user.first
+        redirect_to "http://localhost:3000/user.html?id=#{@user.first.id}"
+      else
+        redirect_to 'http://localhost:3000?user=true'
       end
-    else
-      redirect_to 'http://localhost:3000'
     end
   end
 
