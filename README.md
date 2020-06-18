@@ -28,6 +28,8 @@ I'm Thirsty was created to help users find and save their favorite cocktail reci
 
 ## Demonstration Video
 
+[See how our app functions on YouTube](https://www.youtube.com/watch?v=XNmj7_wnywU)
+
 ## Technologies
 
 The following technologies were used to create this app:
