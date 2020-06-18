@@ -1,5 +1,5 @@
 # I'm Thirty
-New and favorite cocktails at your fingertips.
+Your favorite cocktails at your fingertips.
 
 ## Table of Contents
 
@@ -12,6 +12,8 @@ New and favorite cocktails at your fingertips.
   - [Setup](#setup)
   - [Example Code](#example-code)
   - [Features](#features)
+    - [Current Features](#current-features)
+    - [Future Features](#future-features)
   - [Status](#status)
   - [Contact](#contact)
   - [License](#license)
@@ -36,16 +38,92 @@ The following technologies were used to create this app:
 - Ruby v.2.6.1
 - Rails v.6.0.3
 - Puma v.4.1
+- Lite-server
 
 ## Setup
 
 To be able to run I'm Thirsty locally on your own computer, you will need to follow the setup steps below.
 
-in the 
+In the backend folder, first bundle install the gems by running:
+
+```bash
+~im-thirsty/backend  bundle install
+```
+
+Next, you'll need to re-initialize the database by running:
+
+```bash
+~im-thirsty/backend  rails:db{create, migrate}
+```
+
+Finally, you'll need to get the frontend and backend servers running. Note that the app is currently configured to run the frontend on <http://localhost:3000> and the backend on <http://localhost:3001>. This is as simple as running the following:
+
+```bash
+~im-thirsty/backend  rails s -p 3001
+~im-thirsty/fontend  lite-server
+```
+
+From here, you can open <http://localhost:3000> in your browser and begin exploring the app.
 
 ## Example Code
 
+Code used to construct cocktail flipcards based on a user's search parameters:
+
+```javascript
+function mapSearchResults(searchResults) {
+  return searchResults.drinks.map(drink => {
+    const $li = document.createElement('li')
+    $li.classList.add("outer-container")
+    $li.innerHTML = `
+    <div class="inner-container">
+      <div class="card-front">
+        <p class="drink-name">${drink.strDrink}</p>
+        <img src="${drink.strDrinkThumb}">
+        <p>Click to make it at home</p>
+      </div>
+      <div class="card-back">
+        <p>${drink.strDrink}</p>
+        <ul class="ingredients">${getDrinkIngredients(drink)}</ul>
+        <p>${drink.strInstructions}</p>
+      </div>
+    </div>`
+    $li.addEventListener("click", () => {
+      $li.classList.toggle("reverse")
+    })
+    return $li
+  })
+}
+
+function getDrinkIngredients(drink) {
+  let ingredients = ''
+  for (i = 1; i <= 15; i++) {
+    if (drink[`strIngredient${i}`]) {
+      const ingredient = drink[`strIngredient${i}`]
+      const measure = drink[`strMeasure${i}`]
+      ingredients += `<li>${ingredient} - ${measure}</li>`
+    }
+  }
+  return ingredients
+}
+```
+
 ## Features
+
+### Current Features
+
+- Create a user account with password
+- Search for cocktails by name
+- Display a random cocktail
+- Store favorite cocktails in your user page
+- Add and delete to favorites
+
+### Future Features
+
+- Detailed information on different ingredients
+- Find cocktails by ingredient
+- Store ingredients you have in a personal liquor cabinet
+- Find new cocktails based on the ingredients stored in your liquor cabinet
+- Add new cocktails to the database
 
 ## Status
 
