@@ -1,31 +1,31 @@
 const searchParams = new URLSearchParams(window.location.search)
-const drink = searchParams.get('search')
 const user = searchParams.get('user')
 
-if (drink) {
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drink}`)
+const $searchSubmit = document.querySelector('#search-submit')
+
+$searchSubmit.addEventListener('click', (e) => {
+  e.preventDefault();
+  const searchText = document.querySelector('#search-text').value;
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchText}`)
     .then(renderJson)
     .then(renderSearchResults)
-}
 
-if (user == 'true') {
-  const $p = document.createElement('p')
-  $p.textContent = "Please enter a valid Username/Password"
-  document.querySelector('#sign-in').prepend($p)
+})
+
+function renderSearchResults(searchResults) {
+  document.querySelector('#results').innerHTML = '';
+  appendDrinks(mapSearchResults(searchResults));
 }
 
 function renderJson(data) {
   return data.json()
 }
 
-function renderSearchResults(searchResults) {
-  appendDrinks(mapSearchResults(searchResults))
-}
 
 function mapSearchResults(searchResults) {
   return searchResults.drinks.map(drink => {
-    const $li = document.createElement('li')
-    $li.classList.add("outer-container")
+    const $li = document.createElement('li');
+    $li.classList.add("outer-container");
     $li.innerHTML = `
     <div class="inner-container">
       <div class="card-front">
@@ -38,37 +38,37 @@ function mapSearchResults(searchResults) {
         <ul class="ingredients">${getDrinkIngredients(drink)}</ul>
         <p>${drink.strInstructions}</p>
       </div>
-    </div>`
+    </div>`;
     $li.addEventListener("click", () => {
-      $li.classList.toggle("reverse")
-    })
-    return $li
-  })
+      $li.classList.toggle("reverse");
+    });
+    return $li;
+  });
 }
 
 function appendDrinks(drinks) {
-  const $results = document.querySelector("#results")
+  const $results = document.querySelector("#results");
   drinks.forEach(drink => {
-    $results.append(drink)
-  })
+    $results.append(drink);
+  });
 }
 
 function getDrinkIngredients(drink) {
-  let ingredients = ''
+  let ingredients = '';
   for (i = 1; i <= 15; i++) {
     if (drink[`strIngredient${i}`]) {
-      const ingredient = drink[`strIngredient${i}`]
-      const measure = drink[`strMeasure${i}`]
-      ingredients += `<li>${ingredient} - ${measure}</li>`
+      const ingredient = drink[`strIngredient${i}`];
+      const measure = drink[`strMeasure${i}`];
+      ingredients += `<li>${ingredient} - ${measure}</li>`;
     }
   }
-  return ingredients
+  return ingredients;
 }
 
 function randomDrink() {
-  document.querySelector('#results').innerHTML = ''
+  document.querySelector('#results').innerHTML = '';
   fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
     .then(renderJson)
-    .then(renderSearchResults)
+    .then(renderSearchResults);
 }
 
